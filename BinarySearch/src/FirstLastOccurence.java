@@ -7,8 +7,10 @@
 
 import java.util.Scanner;
 
-public class FirstLastOccurence {
-    public static void main(String[] args) {
+public class FirstLastOccurence
+{
+    public static void main(String[] args)
+    {
         Scanner sc = new Scanner(System.in);
         System.out.println("Enter the Size of the Array/List in Sorted Form:");
         int n = sc.nextInt();
