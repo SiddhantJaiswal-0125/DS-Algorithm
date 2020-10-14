@@ -42,7 +42,7 @@ public class NQueenProblem
            System.out.println("End HERE");
            System.out.println();
            System.out.println();
-    
+
            return;
        }
 //       place at all possible position and move to smaller input
