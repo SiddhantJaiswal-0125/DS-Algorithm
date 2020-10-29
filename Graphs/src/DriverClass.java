@@ -1,7 +1,7 @@
 /*Given the adjacency list of a bidirectional graph.
  Your task is to print the adjacency list for each vertex.*/
 
-
+//given undirected graph
 import java.util.ArrayList;
 import java.util.Scanner;
 

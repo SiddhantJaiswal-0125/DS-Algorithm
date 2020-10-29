@@ -24,9 +24,9 @@ public class DetectCycleInUndirectedGraph
                 list.get(v).add(u);
             }
             if(new DetectCycle().isCyclic(list,noV))
-                System.out.println("1");
+                System.out.println("Yes Cycle Present");
             else
-                System.out.println("0");
+                System.out.println("No Cycle Detected");
 
         }
     }
@@ -40,17 +40,16 @@ class DetectCycle
     {
         // add your code here
         boolean visited[] = new boolean[v];
+
+//        this "for loop" is just for if the graph has more than one connected components
         for(int i = 0; i<v;i++)
         {
             if(!visited[i])
             {
                 if(DFSRec(adj,i,visited,-1) )
                     return true;
-
             }
         }
-
-
         return false;
     }
 

@@ -21,7 +21,7 @@ public class DetectCycleInDirectedGraph
                 int u = sc.nextInt();
                 int v =sc.nextInt();
                 list.get(u).add(v);
-//                list.get(v).add(u);
+
             }
             if(new DetectCycle1().isCyclic(list,noV))
                 System.out.println("1");
@@ -41,6 +41,8 @@ class DetectCycle1
     {
         // add your code here
         boolean visited[] = new boolean[v];
+
+//        this recursionstack is for the same subtree or Recursion treee
         boolean recSt[] = new boolean[v];
         for(int i = 0;i < v; i++)
         {

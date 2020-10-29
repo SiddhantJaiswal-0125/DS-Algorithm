@@ -1,3 +1,5 @@
+//BFS Traversal is for given directed graph
+
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.Queue;
@@ -41,7 +43,7 @@ public class BFStraversal
 
 }
 class Traversal {
-    static ArrayList <Integer> ans = new ArrayList<>();
+    static ArrayList <Integer> ans ;
     static ArrayList<Integer> bfs(ArrayList<ArrayList<Integer>> g, int N)
     {
         // add your code here

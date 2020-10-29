@@ -1,3 +1,5 @@
+//given directed grapg
+
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.Queue;
@@ -42,7 +44,7 @@ public class DFS
 }
 class DFSTraversal
 {
-    static ArrayList <Integer> ans = new ArrayList<Integer>();
+    static ArrayList <Integer> ans;
 
     static ArrayList<Integer> dfs(ArrayList<ArrayList<Integer>> adj, int N)
     {
@@ -60,14 +62,5 @@ class DFSTraversal
         for(int u:adj.get(s))
             if(!visit[u])
                 DFSREC(adj,u,visit);
-
-
-
-
-
-
-
-
-
     }
 }
