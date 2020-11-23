@@ -28,7 +28,7 @@ public class checkBipartite
             adj.get(a).add(b);
             adj.get(b).add(a);
         }
-//        printGraph(noV);
+
         isVisited[1] = true;
         color[1] = 0;
         if(isbipartite(1))
@@ -46,36 +46,22 @@ public class checkBipartite
     static boolean isbipartite(int src)
     {
         ArrayList <Integer> temp = adj.get(src);
-        for(int u : temp)
+        for(int child : temp)
         {
-            if(!isVisited[u])
+            if(!isVisited[child])
             {
-                isVisited[u] = true ;
+                isVisited[child] = true ;
 
-                color[u] = color[src]^1;
-                if(!isbipartite(u))
+                color[child] = color[src]^1;
+                if(!isbipartite(child))
                     return false;
 
             }
-            else if(color[u] == color[src])
+            else if(color[child] == color[src])
                 return false;
         }
         return true;
     }
-    static void printGraph( int V)
-    {
-        // add your code here
-        for(int i=1;i<V+1;i++)
-        {
-            ArrayList<Integer> temp = adj.get(i);
-            System.out.print(i);
-            for(int j=0;j<temp.size();j++)
-            {
-                System.out.print("-> "+temp.get(j));
-            }
-            System.out.println();
-        }
-
 
     }
-}
+
