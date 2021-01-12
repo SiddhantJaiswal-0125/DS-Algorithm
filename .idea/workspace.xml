@@ -1,12 +1,45 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="de431831-e758-444d-be63-ec2363003a4f" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/BackTracking/src/Floor_Number.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BackTracking/src/Increase_and_Copy.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BackTracking/BackTracking.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BackTracking/src/NQueenProblem.java" beforeDir="false" afterPath="$PROJECT_DIR$/BackTracking/src/NQueenProblem.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BinarySearch/BinarySearch.iml" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/Special450/src/CountAndSay.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Special450/src/LongestCommonSubsequence.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Special450/src/LongestPalindromeinaString.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Special450/src/MedianOfTwoSortedArraysDifferentSize.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Special450/src/MedianOfTwoSortedArraysSameSize.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Special450/src/MinimumswapsandKtogether.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Special450/src/PalindromicArray.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Special450/src/SmallestsubarraywithsumgreaterthanX.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Special450/src/SpiralTraversalMatrix.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Special450/src/areRotations.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Stack/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Stack/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Stack/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Stack/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Stack/Stack.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Special450/out/production/Special450/Test.class" beforeDir="false" afterPath="$PROJECT_DIR$/Special450/out/production/Special450/Test.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Special450/out/production/Special450/Trapping_rain_Water.class" beforeDir="false" afterPath="$PROJECT_DIR$/Special450/out/production/Special450/Trapping_rain_Water.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Special450/src/ChocolateDistributionProblem.java" beforeDir="false" afterPath="$PROJECT_DIR$/Special450/src/ChocolateDistributionProblem.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Special450/src/test.java" beforeDir="false" afterPath="$PROJECT_DIR$/Special450/src/test.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -16,6 +49,13 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GithubPullRequestsUISettings">
+    <option name="hiddenUrls">
+      <set>
+        <option value="https://github.com/SiddhantJaiswal-0125/DS-Algorithm" />
+      </set>
+    </option>
+  </component>
   <component name="ProjectId" id="1irQO1n5Ere0p0my9F2QOVPlGJI" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -23,7 +63,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/Stack" />
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -36,14 +76,26 @@
     </task>
     <servers />
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
   <component name="WindowStateProjectService">
-    <state x="463" y="105" key="FileChooserDialogImpl" timestamp="1602663240375">
+    <state x="463" y="105" key="FileChooserDialogImpl" timestamp="1608965254288">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="463" y="105" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1602663240375" />
-    <state x="274" y="0" key="new project wizard" timestamp="1602663242496">
+    <state x="463" y="105" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1608965254288" />
+    <state x="274" y="0" key="new project wizard" timestamp="1608869285187">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="274" y="0" key="new project wizard/0.0.1366.728@0.0.1366.728" timestamp="1602663242496" />
+    <state x="274" y="0" key="new project wizard/0.0.1366.728@0.0.1366.728" timestamp="1608869285187" />
   </component>
 </project>
