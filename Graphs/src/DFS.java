@@ -15,11 +15,15 @@ public class DFS
         {
             ArrayList <ArrayList <Integer> > list = new ArrayList<>();
             int noV = sc.nextInt();
-            int edge = sc.nextInt();
+
+            int a[]  = new int[noV];
+            for(int i =0;i<noV;i++)
+                a[i] = sc.nextInt();
+
             for(int i = 0;i<noV+1; i++)
                 list.add(i,new ArrayList<Integer>());
 
-
+            int edge = sc.nextInt();
             for(int i = 1; i<= edge;i++)
             {
                 int u = sc.nextInt();
@@ -28,6 +32,7 @@ public class DFS
 //                list.get(v).add(u);
             }
             ArrayList <Integer> res = new ArrayList<>();
+
             res = new DFSTraversal().dfs(list,noV);
             for(int i = 0;i<res.size();i++)
             {
@@ -48,7 +53,7 @@ class DFSTraversal
 
     static ArrayList<Integer> dfs(ArrayList<ArrayList<Integer>> adj, int N)
     {
-        // add your code here
+
         ans = new ArrayList<Integer>();
         boolean visit[] = new boolean[N+1];
         DFSREC(adj,0,visit);
