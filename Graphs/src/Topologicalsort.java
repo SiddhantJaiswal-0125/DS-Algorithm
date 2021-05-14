@@ -22,10 +22,12 @@ public class Topologicalsort
             int a = sc.nextInt();
             int b = sc.nextInt();
             adj.get(a).add(b);
-            adj.get(b).add(a);
+//            adj.get(b).add(a);
         }
 
         int ans [] = topoSort(noV,adj);
+        for(int i : ans)
+            System.out.print(i+"  ");
     }
     static int[] topoSort(int V, ArrayList<ArrayList<Integer>> adj)
     {
@@ -38,7 +40,12 @@ public class Topologicalsort
             if(vis[i]==false)
                 topo(vis,adj,st,i);
 //                topo(vis, adj, st,i);
-/
+
+        int i =0;
+        while(st.isEmpty()==false)
+        {
+            ans[i++] = st.pop();
+        }
             return ans;
     }
 
