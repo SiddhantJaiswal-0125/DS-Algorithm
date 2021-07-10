@@ -9,42 +9,40 @@ public class FindMissingAndRepeating {
         for(int i=0;i<n;i++)
             ar[i] = sc.nextInt();
 
+
+//        Arrays.sort(ar);
+//        for(int i : ar)
+//            System.out.print(i+"\t");
+//        System.out.println();
+
         int ans[] = findTwoElement(ar,n);
+        System.out.println("ANSWERS :");
         System.out.println(ans[0]+"\t"+ans[1]);
 
     }
   static   int[] findTwoElement(int arr[], int n) {
         // code here
-        int ans[] = new int[2];
-        //findDuplicate
-      int sum  =0;
-      for(int i : arr)
-          sum+=i;
-//      System.out.println("SUM "+sum);
-      ans[0] =findDuplicate(arr, n) ;
+      int ans[] = new int[2];
+
+      for(int i =0;i<n;i++)
+      {
+          int k = arr[Math.abs(arr[i])-1];
+          if(k<0)
+              ans[0]  =Math.abs(arr[i]);
+          else
+              arr[Math.abs(arr[i])-1 ] *= -1;
+      }
 
 
 
-
-      int k  = sum - ans[0];
-//      System.out.println(k);
-
-      ans[1]  = ((n*(n+1))/2 )- k;
+      for(int i =0;i<n;i++)
+          if(arr[i]>0) {
+              ans[1] = i + 1;
+              break;
+          }
 
     return ans;
 
     }
-    static  int findDuplicate(int ar[], int n )
-    {
-        for(int i=0;i<n;i++)
-        {
-            int k =  ar[Math.abs(ar[i]) -1];
-            if(k<0)
-                return  i+1;
 
-            ar[Math.abs(ar[i]) -1]  *= -1 ;
-        }
-        return  -1;
-
-    }
 }
