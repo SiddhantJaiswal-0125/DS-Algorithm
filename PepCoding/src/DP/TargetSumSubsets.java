@@ -25,7 +25,7 @@ public class TargetSumSubsets
         for(int i = 0;i<n+1;i++)
             dp[i][0] = true;
 
-        for(int  j  = 1;j<target+1;j++)
+        for(int  j  = 0;j<target+1;j++)
             dp[0][j] = false;
 
         for(int  i = 1;i<=n;i++)
@@ -33,12 +33,8 @@ public class TargetSumSubsets
             //for each element
             for(int j  = coins[i-1];j<=target;j++)
             {
-
-                dp[i][j] = dp[i][j-coins[i-1]] ||dp[i-1][j];
+                dp[i][j] = dp[i-1][j-coins[i-1]] || dp[i-1][j];
             }
-
-
-
         }
 
 
