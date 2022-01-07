@@ -148,8 +148,6 @@ public class TargetPair {
         {
             //RIGHT JAO
             return findele(root.right,val);
-
-
         }
         else
         {
