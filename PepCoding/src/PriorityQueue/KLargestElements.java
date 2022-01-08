@@ -15,7 +15,15 @@ public class KLargestElements {
         }
 
         int k = Integer.parseInt(br.readLine());
+        solve2(arr,k);
 
+
+
+
+
+    }
+    static void solve1(int arr[], int k )
+    {
         PriorityQueue <Integer> pq = new PriorityQueue<>(Collections.reverseOrder());
         for(int i:arr)
             pq.add(i);
@@ -29,8 +37,19 @@ public class KLargestElements {
 
         for(int in = k-1;in>=0;in--)
             System.out.println(ans[in]);
+    }
+    static void solve2(int arr[], int k )
+    {
+        PriorityQueue<Integer> pq = new PriorityQueue<>();
+        for(int i :arr)
+        {
+            pq.add(i);
+            if(pq.size()>k)
+                pq.remove();
+        }
 
-
+        while(pq.isEmpty() == false)
+            System.out.println(pq.remove());
 
     }
 
