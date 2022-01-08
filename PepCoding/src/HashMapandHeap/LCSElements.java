@@ -11,7 +11,7 @@ public class LCSElements{
         int ar[] = new int[size];
         for(int i=0;i<size;i++)
             ar[i] = sc.nextInt();
-        ArrayList<Integer> res = solve2(ar, size);
+        ArrayList<Integer> res = solve3(ar, size);
 
         for(int i : res)
             System.out.println(i);
@@ -91,6 +91,42 @@ public class LCSElements{
 
 
         return  res;
+    }
+
+    //BEST APPROACH
+    static ArrayList<Integer>  solve3(int ar[], int size)
+    {
+        ArrayList<Integer>  res = new ArrayList<>();
+        ArrayList<Integer>  temp = new ArrayList<>();
+        HashMap<Integer, Boolean> hmap = new HashMap<>();
+        for(int i:ar)
+            hmap.put(i, true);
+
+        for(int i : ar)
+        {
+            if(hmap.containsKey(i-1))
+                hmap.put(i, false);
+        }
+        for(int i : ar)
+        {
+            if(hmap.get(i) == true)
+            {
+                temp = new ArrayList<>();
+                int key = i;
+                while(hmap.containsKey(key))
+                    temp.add(key++);
+
+                if(temp.size()>res.size())
+                    res = temp;
+            }
+        }
+        if(temp.size()>res.size())
+            res = temp;
+
+
+
+
+        return res;
     }
 
 
