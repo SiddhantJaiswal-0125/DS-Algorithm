@@ -3,6 +3,23 @@ import java.io.*;
 import java.util.*;
 
 public class MergeKSortedList {
+    static class Pair implements Comparable<Pair>
+    {
+        int li, di, val;
+        Pair(int a, int b, int c)
+        {
+            li = a;
+            di = b;
+            val = c;
+        }
+
+       public  int compareTo(Pair o)
+        {
+            return this.val - o.val;
+        }
+    }
+
+
     public static ArrayList<Integer> mergeKSortedLists(ArrayList<ArrayList<Integer>> lists){
         ArrayList<Integer> rv = new ArrayList<>();
         int size = lists.size();
@@ -39,13 +56,38 @@ public class MergeKSortedList {
 
             while(y<size2)
                 rv.add(temp2.get(y++));
-
-//            System.out.println("NOW RV is "+rv);
         }
 
 
 
         return rv;
+    }
+
+    static  ArrayList<Integer>   mergeKSortedLists2(ArrayList<ArrayList<Integer>> lists)
+    {
+        ArrayList<Integer> res = new ArrayList<>();
+        PriorityQueue<Pair> pq = new PriorityQueue<>();
+        for(int i =0;i<lists.size();i++)
+        {
+            Pair p = new Pair(i, 0, lists.get(i).get(0));
+            pq.add(p);
+        }
+        while(pq.size()>0)
+        {
+            Pair p = pq.remove();
+            res.add(p.val);
+            p.di++;
+            if(p.di < lists.get(p.li).size())
+            {
+                p.val = lists.get(p.li).get(p.di);
+                pq.add(p);
+            }
+        }
+
+
+
+        return  res;
+
     }
 
     public static void main(String[] args) throws Exception {
@@ -64,7 +106,7 @@ public class MergeKSortedList {
             lists.add(list);
         }
 
-        ArrayList<Integer> mlist = mergeKSortedLists(lists);
+        ArrayList<Integer> mlist = mergeKSortedLists2(lists);
         for(int val: mlist){
             System.out.print(val + " ");
         }
