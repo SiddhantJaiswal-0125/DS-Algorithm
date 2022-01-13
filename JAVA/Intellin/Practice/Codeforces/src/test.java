@@ -1,49 +1,32 @@
+import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.*;
-class test
-{
+import java.util.Map;
+import java.util.Scanner;
+
+class test{
     public static void main(String[] args) {
-            Scanner sc = new Scanner(System.in);
-            int n =sc.nextInt();
-            int days = sc.nextInt();
-            int com[] = new int[n];
-            for(int i =0;i<n;i++)
-                com[i] = sc.nextInt();
-
-        System.out.println(findMinComplexity(com,days));
-
-
+        Scanner sc = new Scanner(System.in);
+        int  n = sc.nextInt();
+        ArrayList<Integer> ans = getAns(n);
+        for(int i : ans)
+            System.out.print(i+" ");
+        System.out.println();
     }
-    static  int findMinComplexity(int comlexity[], int days)
-    {
-        int total = 0;
-        int max =  -1;
-        for(int i : comlexity)
-            max = Math.max(i, max);
-        int size =  comlexity.length;
-        int i = 0, j = size-1;
-        while(days>1)
-        {
-            if(comlexity[i]>comlexity[j])
-            {
-                total += comlexity[j];
-                j--;
+    public static ArrayList<Integer> getAns(int range) {
+        int distance = 0;
+        int nextNumber = 0;
+        ArrayList<Integer> res = new ArrayList<>();
+        Map<Integer, Integer> numberMap = new HashMap<>();
+        for (int i = 0; i < range; i++) {
+            if (numberMap.containsKey(nextNumber)) {
+                distance = i - numberMap.get(nextNumber);
+            } else {
+                distance = 0;
             }
-            else
-            { total += comlexity[i];
-
-                i++;
-            }
-            days--;
-
+            numberMap.put(nextNumber, i);
+            res.add(nextNumber);
+            nextNumber = distance;
         }
-        total+=max;
-
-        return total;
-
-
-
+        return res;
     }
-//    int  func(int a, int b);
-
 }

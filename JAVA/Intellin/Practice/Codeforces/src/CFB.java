@@ -3,63 +3,87 @@
     import java.io.InputStreamReader;
     import java.util.*;
 
-    class CFB {
+    public class CFB {
 
         public static void main(String[] args) {
 
-            Scanner sc = new Scanner(System.in);
-             int t = sc.nextInt();
-             int c = sc.nextInt();
-             String i = sc.next();
-             String ans = findCost(t,c,i);
-            System.out.println(ans);
+            FastReader sc = new FastReader();
+            int t = sc.nextInt();
+            while (t-->0) {
+                int n = sc.nextInt();
+                int ar[]= new int[n];
+                int min =  Integer.MAX_VALUE;
+                int max = Integer.MIN_VALUE;
+
+                for(int i = 0;i<n;i++) {
+                    ar[i] = sc.nextInt();
+                    if(ar[i] >max)
+                        max = ar[i];
+                    if(ar[i]<min)
+                        min = ar[i];
+                }
+
+                System.out.println(max - min);
+            }
+
 
         }
-        static String findCost(int tableCost, int cardinality, String indexType)
+
+        static class FastReader
         {
-            int million = 1000000;
-            if(indexType.equalsIgnoreCase("standard"))
+            BufferedReader br;
+            StringTokenizer st;
+
+            public FastReader()
             {
-
-                int tc = 0;
-
-                if(tableCost > million)
-                {
-                    tc = (int)(0.3 * million)/1;
-                    tableCost -=million;
-                    tc = tc + (int) (tableCost * 0.15/100);
-
-                }
-                else
-                {
-                    tc = (tableCost * 30) /100;
-
-                }
-                if(cardinality/tc < 1)
-                    return "Yes";
-                else
-
-                    return "No";
-            }
-            else {
-                int tc = 0;
-                if(tableCost > million)
-                {
-                    tc = (int)(0.1 * million)/1;
-                    tableCost -=million;
-                    tc = tc + (int) (tableCost * 0.05/100);
-
-                }
-                else
-                    tc = (tableCost * 10) /100;
-
-                if(cardinality/tc < 1)
-                    return "Yes";
-                else
-                    return "No";
-
-
+                br = new BufferedReader(new
+                        InputStreamReader(System.in));
             }
 
+            String next()
+            {
+                while (st == null || !st.hasMoreElements())
+                {
+                    try
+                    {
+                        st = new StringTokenizer(br.readLine());
+                    }
+                    catch (IOException  e)
+                    {
+                        e.printStackTrace();
+                    }
+                }
+                return st.nextToken();
+            }
+
+            int nextInt()
+            {
+                return Integer.parseInt(next());
+            }
+
+            long nextLong()
+            {
+                return Long.parseLong(next());
+            }
+
+            double nextDouble()
+            {
+                return Double.parseDouble(next());
+            }
+
+            String nextLine()
+            {
+                String str = "";
+                try
+                {
+                    str = br.readLine();
+                }
+                catch (IOException e)
+                {
+                    e.printStackTrace();
+                }
+                return str;
+            }
         }
+
     }
