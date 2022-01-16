@@ -26,8 +26,6 @@ public class Ugly2
         }
 
         return  ar.get(n-1);
-
-
     }
 
     public static void main(String[] args) {
