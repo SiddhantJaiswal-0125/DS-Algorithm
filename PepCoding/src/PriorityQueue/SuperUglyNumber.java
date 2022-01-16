@@ -1,7 +1,9 @@
 package PriorityQueue;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Scanner;
+import java.util.Set;
 
 public class SuperUglyNumber {
     public static void main(String[] args) {
@@ -17,6 +19,8 @@ public class SuperUglyNumber {
     public int nthSuperUglyNumber(int n, int[] primes) {
         if(n==1)
             return  1;
+        HashMap<Integer,Integer>  hashMap = new HashMap<>();
+
 
         ArrayList<Integer> ar = new ArrayList<>();
         ar.add(1);
