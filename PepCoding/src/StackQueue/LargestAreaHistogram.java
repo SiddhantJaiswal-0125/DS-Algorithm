@@ -19,6 +19,7 @@ public class LargestAreaHistogram {
 
         st.push(arr.length - 1);
         rb[arr.length - 1] = arr.length;
+        //right side se traversal
         for (int i = arr.length - 2; i >= 0; i--) {
             while (st.size() > 0 && arr[i] <= arr[st.peek()]) {
                 st.pop();
@@ -33,7 +34,7 @@ public class LargestAreaHistogram {
             st.push(i);
         }
 
-        int[] lb = new int[arr.length]; // nse on the left
+        int[] lb = new int[arr.length]; // nsindex on the left
         st = new Stack<>();
 
         st.push(0);
