@@ -30,6 +30,7 @@ public class SmallestPatternFollowing
                 }
             }
         }
+       
         st.push(count);
         while(st.isEmpty()==false)
         {
