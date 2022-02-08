@@ -10,6 +10,7 @@ public class MinimumStack {
 
         public MinStack() {
             data = new Stack<>();
+
         }
 
         int size() {
