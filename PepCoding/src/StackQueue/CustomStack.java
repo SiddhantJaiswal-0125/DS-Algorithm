@@ -9,9 +9,12 @@ public class CustomStack {
         int[] data;
         int tos;
 
+
         public CustomStack1(int cap) {
             data = new int[cap];
             tos = -1;
+            ArrayList<Integer> ar = new ArrayList<>();
+
         }
 
         int size() {
