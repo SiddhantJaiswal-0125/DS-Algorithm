@@ -1,4 +1,4 @@
-package DP;
+package DP;//package DP;
 
 import java.util.*;
 
@@ -37,11 +37,6 @@ public class ClibmStairsVariableJumps
                 j++;
             }
         }
-
-
-//        for(int i  =0;i<=n;i++)
-//            System.out.print(dp[i]+"\t");
-//        System.out.println();
         return dp[n];
 
 
