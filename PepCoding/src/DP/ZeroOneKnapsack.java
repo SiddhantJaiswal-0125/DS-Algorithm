@@ -25,19 +25,13 @@ class Zero {
         if(n==0)
             return 0;
         int dp[][] = new int[n+1][cap+1];
-
-        for(int i = 0;i<cap+1;i++)
-            dp[0][i] = 0;
-        for(int i = 0;i<n+1;i++)
-            dp[i][0] = 0;
-
         for(int i = 1;i<=n;i++)
             for(int j =1;j<=cap;j++) {
                 if (wt[i - 1] <= j)
                     dp[i][j] = max(
                             val[i - 1] +
                                     dp[i-1][j - wt[i - 1]],
-                            dp[i - 1][j]);
+                            dp[i ][j]);
                 else
                     dp[i][j] = dp[i - 1][j];
             }
