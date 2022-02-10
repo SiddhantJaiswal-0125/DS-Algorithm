@@ -1,5 +1,4 @@
-package DP;
-
+package DP;//package DP;
 import java.util.Scanner;
 
 public class ClimbStairsWithMinimumMoves
@@ -19,9 +18,7 @@ public class ClimbStairsWithMinimumMoves
         Integer dp[] = new Integer[n+1];
         dp[n] = new Integer(0);
 //
-//        for(Integer i :dp)
-//            System.out.print(i+"\t");
-//        System.out.println();
+
         for(int i = n-1;i>=0;i--)
         {
             int min = Integer.MAX_VALUE;
@@ -45,11 +42,6 @@ public class ClimbStairsWithMinimumMoves
          else
              dp[i] = null;
         }
-//
-//        for(Integer i :dp)
-//            System.out.print(i+"\t");
-//        System.out.println();
-
         return  dp[0];
     }
 

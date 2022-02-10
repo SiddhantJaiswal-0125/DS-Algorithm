@@ -14,10 +14,6 @@ public class CoinChangeCombination
         for(int i =0;i<n;i++)
         coins[i] = sc.nextInt();
         int tar = sc.nextInt();
-        Queue<Integer> q = new LinkedList<>();
-        int k =  q.size();
-        q.remove();
-
         System.out.println(solve(coins, tar,n));
         sc.close();
     }
@@ -32,10 +28,8 @@ public class CoinChangeCombination
        {
             for(int j = coins[i] ;j<=tar;j++)
             {
-                 
-            
                     dp[j]+= dp[j-coins[i]];
-                }
+            }
        }
 
        return dp[tar];

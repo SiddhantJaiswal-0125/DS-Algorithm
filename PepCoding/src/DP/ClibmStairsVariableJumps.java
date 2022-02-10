@@ -24,7 +24,6 @@ public class ClibmStairsVariableJumps
         {
             if(dp[i]==0)
                 continue;
-
             int j = 1;
             while(j<=steps[i])
             {
