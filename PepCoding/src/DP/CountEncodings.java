@@ -46,14 +46,10 @@ public class CountEncodings {
                 dp[i] = dp[i - 1];
 
                 if (s.charAt(i - 2) == '2') {
-                    if (s.charAt(i - 1) <= '6') {
+                    if (s.charAt(i - 1) <= '6')
                         dp[i] += dp[i - 2];
-
-                    }
-                } else if (s.charAt(i - 2) == '1') {
+                } else if (s.charAt(i - 2) == '1')
                     dp[i] += dp[i - 2];
-                }
-
             }
         }
         return dp[len];

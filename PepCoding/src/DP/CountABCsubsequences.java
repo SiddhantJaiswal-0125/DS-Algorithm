@@ -15,6 +15,13 @@ public class CountABCsubsequences
         int len = s.length();
 
         int dp[][] = new int[3][len];
+        /*
+        * Ek 2d matrix banao with 3 rows
+        * one for A+ sequences  ||  whenever a comes => 2*(last a+) +1
+        * one for a+b+ sequences || whenever b comes => 2*(last ab+) + count of a
+        * one for a+b+c+ sequences || whenever c comes => 2*(last abc+) + count of b
+        * */
+
         for (int i = 0; i < len; i++) {
             char ch = s.charAt(i);
             if (ch == 'a') {
@@ -36,20 +43,17 @@ public class CountABCsubsequences
 
             }
 
-
             else if (ch == 'b') {
                 if(i>0) {
                     dp[0][i] = dp[0][i - 1];
                     dp[2][i] = dp[2][i-1];
 
 
-                    dp[1][i] =( 2*dp[1][i-1] );
+                    dp[1][i] =2*dp[1][i-1];
                     dp[1][i] += dp[0][i];
                 }
-
-
-
-        } else if (ch == 'c') {
+            }
+            else if (ch == 'c') {
                 if(i>0) {
 
                     dp[1][i] = dp[1][i-1];
@@ -59,19 +63,8 @@ public class CountABCsubsequences
                     dp[2][i] += dp[1][i];
 
                 }
-//                if(i>0)
-
-//                dp[1][i] += dp[0][i];
+            }
         }
-        }
-
-//        for(int i =0;i<3;i++)
-//        {
-//            for(int j = 0;j<len;j++)
-//                System.out.print(dp[i][j]+"\t");
-//            System.out.println();
-//
-//        }
         return dp[2][len-1];
 
     }
