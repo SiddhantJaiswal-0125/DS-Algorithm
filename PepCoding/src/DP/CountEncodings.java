@@ -26,7 +26,6 @@ public class CountEncodings {
             if(c1=='0' && c2=='0')
             {
                 dp[i] = 0;
-
             }
             else if(c1=='0' && c2!='0')
             {
@@ -37,7 +36,7 @@ public class CountEncodings {
 
                 if(c1=='1'||c1=='2')
                 {
-                    dp[i]= dp[i-1];
+                    dp[i]= dp[i-2];
                 }
                 else dp[i] =0;
 
