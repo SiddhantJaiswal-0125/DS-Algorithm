@@ -17,13 +17,44 @@ public class MorisTraversal {
         }
     }
 
-    public static ArrayList<Integer> morrisInTraversal(TreeNode Treenode) {
+    public static ArrayList<Integer> morrisInTraversal(TreeNode node) {
 
         ArrayList<Integer> ar = new ArrayList<>();
-        inorder(Treenode,ar);
+        TreeNode curr = node;
+        while(curr != null)
+        {
+            TreeNode leftnode = curr.left;
+            if(leftnode ==  null)
+            {
+                ar.add(curr.val);
+                curr = curr.right;
+            }
+            else
+            {
+
+                TreeNode rightmostnode = getrightmost(leftnode, curr);
+                if(rightmostnode.right == null)
+                {
+                    rightmostnode.right = curr;
+                    curr = curr.left;
+                }
+                else
+                {
+                    //Break the threade
+                    rightmostnode.right = null;
+                    ar.add(curr.val);
+                    curr = curr.right;
+                }
+            }
+        }
         return ar;
+    }
+    static TreeNode getrightmost(TreeNode left, TreeNode curr)
+    {
+        while(left.right != null  && left.right != curr)
+            left = left.right;
 
-
+        return  left;
     }
     static void inorder(TreeNode node,  ArrayList<Integer> ar)
     {
