@@ -41,7 +41,7 @@ public class MorrisPreOrder {
                 }
                 else
                 {
-                    //Break the threade
+                    //Break the threade and move to right
                     rightmostnode.right = null;
                     curr = curr.right;
                 }
