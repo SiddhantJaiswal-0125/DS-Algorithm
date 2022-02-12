@@ -1,6 +1,7 @@
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.Arrays;
 import java.util.StringTokenizer;
 
 public class CFA{
@@ -9,52 +10,33 @@ public class CFA{
         int t = sc.nextInt();
         while (t-->0)
         {
-            int a = sc.nextInt();
-            int b = sc.nextInt();
-            int c = sc.nextInt();
-            boolean res = false;
+            int n = sc.nextInt();
+            int ar[] = new int[n];
+            int cpy []=  new int [n];
 
-            //CASE 1
-            int dif = c - b;
-            int want = b - dif;
-            if(want%a == 0 && want >0)
-            {
-              res = true;
+            for(int i  =0;i<n;i++) {
+                ar[i] = sc.nextInt();
+                cpy[i] =ar[i];
             }
-            if(res==false)
-            {
-
-                //CASE 2
-                dif = b - a;
-
-                want = b + dif;
-                if(want%c == 0 && want >0)
-                {
-                    res = true;
-                }
-            }
-            if(res == false)
-            {
-                //CASE 3
-                double  x = (c + a) /2.0;
-                if((c+a) %2==0 )
-                {
-                    if(x%b == 0 && x >0)
-                        res = true;
-                }
-
-
-
-            }
-
-            if(res)
-                System.out.println("YES");
-            else
+            if(check(ar, cpy))
                 System.out.println("NO");
+            else System.out.println("YES");
+
+
         }
     }
 
-    static class FastReader
+    static  boolean check(int a1[], int b[])
+    {
+        Arrays.sort(b);
+        for(int i  =0;i<a1.length;i++) {
+            if(a1[i] != b[i])
+                return  false;
+        }
+        return  true;
+
+
+    }    static class FastReader
     {
         BufferedReader br;
         StringTokenizer st;

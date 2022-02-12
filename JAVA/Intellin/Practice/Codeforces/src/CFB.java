@@ -12,23 +12,37 @@
             while (t-->0) {
                 int n = sc.nextInt();
                 int ar[]= new int[n];
-                int min =  Integer.MAX_VALUE;
-                int max = Integer.MIN_VALUE;
 
                 for(int i = 0;i<n;i++) {
                     ar[i] = sc.nextInt();
-                    if(ar[i] >max)
-                        max = ar[i];
-                    if(ar[i]<min)
-                        min = ar[i];
                 }
-
-                System.out.println(max - min);
+              long ans = solve(ar,n);
+                System.out.println(ans);
             }
-
 
         }
 
+        static long solve(int ar[], int n)
+        {
+            long max = 0l;
+            for(int i =0;i<n;i++)
+            {
+                long sum = 0;
+                for(int j = i;j<n;j++)
+                {
+                    sum+= mex(ar[j]);
+                    max += j-i+1+sum;
+                }
+            }
+            return  max;
+        }
+        static  int mex(int a)
+        {
+            if(a==0)
+                return  1;
+            else
+                return  0;
+        }
         static class FastReader
         {
             BufferedReader br;
