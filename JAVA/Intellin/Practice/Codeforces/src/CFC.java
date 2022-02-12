@@ -19,16 +19,17 @@ public class CFC {
           if(isPossible(a))
           {
               long count = 0l;
+              int odd = 0;
               for(int i =0;i<n;i++)
               {
                   if(i==0 || i == n-1 || a[i] == 0)
                       continue;
                   else if(a[i] % 2!=0)
-                   count++;
+                   odd++;
 
-                  count+= a[i]/2;
+                  count+=a[i];
               }
-              System.out.println(count);
+              System.out.println((count+odd)/2);
           }
           else
               System.out.println(-1);
@@ -41,16 +42,23 @@ public class CFC {
         int odd = 0;
         int size = ar.length;
 
+        if(size==3 && ar[1]%2 == 1)
+            return  false;
+
+
         for(int i = 0;i<size;i++ )
         {
             if(i==0 || i == size-1 || ar[i] == 0)
                 continue;
             else if(ar[i]%2==0)
                 return  true;
+            else if(ar[i]>1)
+            return  true;
             else odd++;
 
+
         }
-        if(odd==0)
+        if(odd==0 )
             return  true;
         return  false;
 
