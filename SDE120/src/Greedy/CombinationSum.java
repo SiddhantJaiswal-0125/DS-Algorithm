@@ -12,9 +12,9 @@ public class CombinationSum
         for(int i = 0;i<n;i++)
             ar[i] = sc.nextInt();
         int tar = sc.nextInt();
-        List<List<Integer>> res = new CombinationSum().combinationSum2(ar, tar);
+        List<List<Integer>> res = new Solution().combinationSum(ar, tar);
 
-        System.out.println(ans);
+        System.out.println(res);
 
     }
     public List<List<Integer>> combinationSum2(int[] candidates, int target) {
@@ -26,7 +26,10 @@ public class CombinationSum
 
         ArrayList<Integer> re = new ArrayList<>();
         solve(candidates, 0, re, target, size,0);
+
         return  ans;
+
+
 
 
     }
@@ -39,6 +42,8 @@ public class CombinationSum
 
         if(sumTillNow==target)
         {
+            System.out.println(sumTillNow);
+
 
             ans.add(tillNow);
             return;
@@ -55,9 +60,10 @@ public class CombinationSum
 
             tillNow.add(can[index]);
 
-            solve(can, index+1, tillNow, target, size, sumTillNow-can[index]);
+            solve(can, index+1, tillNow, target, size, sumTillNow+can[index]);
 
             int n = tillNow.size();
+
             tillNow.remove(n-1);
         }
 
@@ -71,4 +77,40 @@ public class CombinationSum
     }
 
 
+}
+
+
+class Solution {
+    public List<List<Integer>> combinationSum(int[] ar, int target) {
+
+        List<List<Integer>> ans = new ArrayList<>();
+        solve(ans,0, new ArrayList<Integer>(), ar, target,0, ar.length);
+        return ans;
+    }
+    public void solve( List<List<Integer>> ans, int ind, List<Integer> temp, int ar[],int target, int sum, int size)
+    {
+        if(sum>target)
+            return;
+
+
+        if(ind==size)
+        {
+            if(sum ==target)
+                ans.add(new ArrayList<>(temp));
+            return;
+
+        }
+
+        if(sum<target)
+        {
+            temp.add(ar[ind]);
+            solve(ans, ind, temp, ar,target,sum+ar[ind], size);
+            temp.remove(temp.size() - 1);
+        }
+        solve(ans, ind+1, temp,ar, target, sum, size);
+
+        return;
+
+
+    }
 }

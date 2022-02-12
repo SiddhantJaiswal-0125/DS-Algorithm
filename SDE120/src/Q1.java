@@ -1,84 +1,70 @@
-import java.util.Scanner;
+// Java implementation of the approach
+import java.util.*;
 
-public class Q1
+class GFG
 {
-    public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        int n = sc.nextInt();
-        int q = sc.nextInt();
-        int ar[] = new int[n];
-        for(int i =0;i<n;i++)
-            ar[i] = sc.nextInt();
-        int l[] = new int[q];
-        int r [] = new int[q ];
-        int x[] = new int[q];
 
-        for(int  i= 0;i<q;i++)
-        {
-            l[i] = sc.nextInt();
-            r[i] = sc.nextInt();
-            x[i] = sc.nextInt();
-
-        }
-
-
-
-        long res [] = solve(ar,x,r,l);
-        for(long ri:res)
-            System.out.println(ri);
-
-
-
-    }
-    static  long[] solve(int A[], int X[], int R[], int L[])
+    // Function that will find the
+// card number which is remaining
+    static int remainingCard(int n)
     {
+        Queue<Integer> queCards = new LinkedList<>();
 
-        int q = X.length;
-        long ans [] = new long[q];
-
-        int i  =0;
-        while(i<q)
+        // Inserting all the numbers from 1 to n
+        for (int i = 1; i <= n; i++)
         {
-            int l = L[i];
-            int r = R[i];
-            int x = X[i];
-            long xor =0l;
-            for(int ind = l-1 ; ind<r;ind++)
-                xor +=  (x^ A[ind]);
-
-            ans[i] = xor;
-            i++;
+            queCards.add(i);
         }
 
-        return ans;
+        // While there are atleast two
+        // elements in the queue
+        while (((int) queCards.size()) >= 2)
+        {
+
+            // Push the front element at the back
+
+            for(int as=0; as <50000-1; as++) {
+
+                queCards.add(queCards.peek());
+
+                // Remove the front element
+                queCards.remove();
+            }
+
+            queCards.remove();
+        }
+
+        return queCards.peek();
+    }
+
+    // Driver code
+    public static void main(String[] args)
+    {
+        int n = 10000000;
+
+       int ans=  solve();
+        System.out.println("ANS IS "+ans);
+//        System.out.println(remainingCard(n));
+    }
+    static int solve()
+    {
+        int n = 100;
+        try{
+            System.out.println(n/0);
+            return 0;
+        }
+        catch (Exception e)
+        {
+            System.out.println(e.getMessage());
+
+            return  -1;
+
+        }
+        finally {
+            System.out.println("AT FiNNALY");
+
+//            return -2;
+
+        }
     }
 }
-
-
-
-
-//
-//    long leftxor[] = new long[n];
-//    long rightxor[] = new long[n];
-//    long xor = 0l;
-//
-//
-//        for(int i =0;i<n;i++)
-//        {
-//        xor = xor^ar[i];
-//        leftxor[i] = xor;
-//
-//        }
-//        xor = 0l;
-//        for(int  i =n-1;i>=0;i--)
-//        {
-//        xor = xor^ar[i];
-//        rightxor[i] = xor;
-//
-//        }
-//        long totalxor = xor;
-//
-//
-//
-//
-//

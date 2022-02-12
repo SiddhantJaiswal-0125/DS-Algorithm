@@ -6,13 +6,24 @@ public class LargestRectange {
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        int n = sc.nextInt();
-        int ar[] =  new int[n];
-        for(int i =0;i<n;i++)
-            ar[i] = sc.nextInt();
-        System.out.println(new LargestRectange().largestRectangleArea(ar));
-    }
+        String s = sc.next();
+        String ans = "";
+        int size = s.length();
 
+        for(int i  =0;i<size;i++)
+        {
+            int c= s.charAt(i) - '0';
+            ans= ans + (char)('a'+c);
+
+
+        }
+        System.out.println(new String(ans));
+
+
+
+
+
+    }
     public int largestRectangleArea(int[] heights) {
         int size = heights.length;
         int nsl[] = _nsl(heights, size);
