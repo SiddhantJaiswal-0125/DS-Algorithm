@@ -14,7 +14,7 @@ public class RecoverBST {
         }
     }
 
-    public static void recoverTree(TreeNode root) {
+    public static void  recoverTree(TreeNode root) {
 
         TreeNode first = findfirst(root, Integer.MIN_VALUE, Integer.MAX_VALUE);
         TreeNode second = findsecond(root, first, Integer.MIN_VALUE, Integer.MAX_VALUE );
