@@ -3,8 +3,6 @@ import java.util.*;
 
 public class FaultyKeyBoard {
 
-    // ~~~~~~~~~~~~~~~~~~~~~User Section~~~~~~~~~~~~~~~~~~~~~
-
     static class pair
     {
         char c; int count ;
@@ -16,7 +14,7 @@ public class FaultyKeyBoard {
         }
 
     }
-    public static boolean isPossible(String name, String typed) {
+    public static boolean isPossible2(String name, String typed) {
         // Write your code here
 
         int size1 = name.length();
@@ -42,8 +40,6 @@ public class FaultyKeyBoard {
         pair p = new pair(ch, count);
         ar1.add(p);
 
-
-
         ch = typed.charAt(0);
         count = 1;
         for(int i = 1;i<size2;i++)
@@ -57,14 +53,9 @@ public class FaultyKeyBoard {
             }
             else
                 count++;
-
         }
         pair pi = new pair(ch, count);
         ar2.add(pi);
-
-
-
-
 
       if(ar1.size()!=ar2.size())
           return false;
@@ -81,9 +72,34 @@ public class FaultyKeyBoard {
 
         return  true;
     }
+    public static boolean isPossible(String name, String typed) {
+        // Write your code here
 
-    // ~~~~~~~~~~~~~~~~~~~Input Management~~~~~~~~~~~~~~~~~~~
+        int size1 = name.length();
+        int size2 = typed.length();
+        int i = 0, j =0;
+        while(i<size1 && j<size2)
+        {
+            if(name.charAt(i) ==  typed.charAt(j))
+            {
+                i++;
+                j++;
+            }
+            else if(i>0 && name.charAt(i-1) == typed.charAt(j))
+                j++;
+            else return  false;
 
+        }
+        while(j<size2) {
+         if(typed.charAt(j) != name.charAt(i-1))
+             return  false;
+            j++;
+        }
+
+
+
+        return i<size1 ? false:true;
+    }
     public static void main(String[] args) {
         Scanner scn = new Scanner(System.in);
 
