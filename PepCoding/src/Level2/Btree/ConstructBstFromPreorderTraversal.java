@@ -1,6 +1,8 @@
 package Level2.Btree;
 
 //ConstructBstFromPreorderTraversal
+
+
 import java.util.Scanner;
 
 public class ConstructBstFromPreorderTraversal {
@@ -17,7 +19,29 @@ public class ConstructBstFromPreorderTraversal {
     }
 
     public static TreeNode bstFromPreorder(int[] preorder) {
-        return null;
+
+        if(preorder.length == 0)
+            return  null;
+
+        return createBST(preorder, 0, preorder.length -1);
+    }
+    static  TreeNode createBST(int pre[] , int si, int ei)
+    {
+        if(si>ei)
+            return  null;
+
+        TreeNode root = new TreeNode(pre[si]);
+        int idx = si;
+        while(idx <= ei &&pre[idx] <= pre[si] )
+            idx++;
+
+        root.left = createBST(pre,si+1, idx-1);
+        root.right = createBST(pre, idx, ei);
+
+        return  root;
+
+
+
     }
 
     // input_section=================================================
