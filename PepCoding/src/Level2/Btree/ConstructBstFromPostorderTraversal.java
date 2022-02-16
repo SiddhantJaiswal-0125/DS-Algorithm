@@ -2,7 +2,7 @@ package Level2.Btree;
 
 import java.util.Scanner;
 
-public class ConstructBstFromInorderTraversal {
+public class ConstructBstFromPostorderTraversal {
     public static Scanner scn = new Scanner(System.in);
 
     public static class TreeNode {
@@ -15,19 +15,23 @@ public class ConstructBstFromInorderTraversal {
         }
     }
 
-    public static TreeNode constructFromInOrder(int[] inOrder) {
-        return createBST(inOrder, 0, inOrder.length-1);
+    public static TreeNode bstFromPostorder(int[] postOrder) {
+        return createBst(postOrder, 0, postOrder.length-1);
     }
-
-    static TreeNode createBST(int in[], int si, int ei)
+    static TreeNode createBst(int post[], int si, int ei)
     {
         if(si>ei)
-            return null;
-        int mid = (si + ei)/2;
-        TreeNode root = new TreeNode(in[mid]);
-        root.left = createBST(in, si, mid -1);
-        root.right = createBST(in, mid+1, ei);
-        return root;
+            return  null;
+        TreeNode root = new TreeNode(post[ei]);
+        int idx = ei;
+        while(idx>=si && post[idx] >= post[ei] )
+            idx--;
+
+        root.left = createBst(post, si, idx);
+        root.right = createBst(post,idx+1, ei-1);
+        return  root;
+
+
     }
 
     // input_section=================================================
@@ -50,11 +54,11 @@ public class ConstructBstFromInorderTraversal {
 
     public static void solve() {
         int n = scn.nextInt();
-        int[] in = new int[n];
+        int[] pre = new int[n];
         for (int i = 0; i < n; i++)
-            in[i] = scn.nextInt();
+            pre[i] = scn.nextInt();
 
-        TreeNode root = constructFromInOrder(in);
+        TreeNode root = bstFromPostorder(pre);
         display(root);
     }
 
