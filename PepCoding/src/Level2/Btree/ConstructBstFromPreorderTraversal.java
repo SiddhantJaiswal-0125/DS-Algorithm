@@ -1,7 +1,9 @@
 package Level2.Btree;
+
+//ConstructBstFromPreorderTraversal
 import java.util.Scanner;
 
-public class BtreefromPreandPost {
+public class ConstructBstFromPreorderTraversal {
     public static Scanner scn = new Scanner(System.in);
 
     public static class TreeNode {
@@ -14,29 +16,8 @@ public class BtreefromPreandPost {
         }
     }
 
-    public static TreeNode postPreTree(int[] post, int ppsi, int ppei, int[] pre, int psi, int pei) {
-        if (psi > pei)
-            return null;
-
-        TreeNode node = new TreeNode(pre[psi]);
-
-        if (psi == pei)
-            return node;
-
-        int idx = ppsi;
-        while (post[idx] != pre[psi + 1])
-            idx++;
-
-        int countinLeft = idx - ppsi + 1;
-        node.left = postPreTree(post, ppsi, idx, pre, psi + 1, psi + countinLeft);
-        node.right = postPreTree(post, idx + 1, ppei - 1, pre, psi + countinLeft + 1, pei);
-
-        return node;
-    }
-
-    public static TreeNode constructFromPrePost(int[] pre, int[] post) {
-        int n = post.length;
-        return postPreTree(post, 0, n - 1, pre, 0, n - 1);
+    public static TreeNode bstFromPreorder(int[] preorder) {
+        return null;
     }
 
     // input_section=================================================
@@ -59,15 +40,11 @@ public class BtreefromPreandPost {
 
     public static void solve() {
         int n = scn.nextInt();
-        int[] post = new int[n];
-        for (int i = 0; i < n; i++)
-            post[i] = scn.nextInt();
-
         int[] pre = new int[n];
         for (int i = 0; i < n; i++)
             pre[i] = scn.nextInt();
 
-        TreeNode root = constructFromPrePost(pre, post);
+        TreeNode root = bstFromPreorder(pre);
         display(root);
     }
 
