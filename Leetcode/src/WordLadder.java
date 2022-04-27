@@ -52,52 +52,52 @@ public class WordLadder {
     }
 
     public int ladderLength(String beginWord, String endWord, List<String> wordList) {
-        if(lastWordExits(endWord, wordList) == false)
-            return 0;
+//        if(lastWordExits(endWord, wordList) == false)
+//            return 0;
+//
+//        buildGraph(wordList);
+//
+//        Queue<String> q = new ArrayDeque<>();
+//
+//        for(int i =0;i<wordList.size();i++)
+//        {
+//            if(isPoss(wordList.get(i), beginWord))
+//                q.add(wordList.get(i));
+//        }
+//
+//        HashSet<String> hs = new HashSet<>();
+//
+//        int dis =0;
+//        while(q.size()>0)
+//        {
+//            int size = q.size();
+//            dis++;
+//            for(int i =0;i<size;i++)
+//            {
+//                String out = q.remove();
+//                if(out.equalsIgnoreCase(endWord))
+//                    return  dis+1;
+//
+//                if(hs.contains(out))
+//                    continue;
+//                else
+//                {
+//                    hs.add(out);
+//                    for(int j =0;j<wordList.size();j++)
+//                    {
+//                        if(hs.contains(wordList.get(j)) == false && isPoss(wordList.get(j), out))
+//                            q.add(wordList.get(j));
+//                    }
+//                }
+//
+//
+//
+//            }
+//        }
 
-        buildGraph(wordList);
-
-        Queue<String> q = new ArrayDeque<>();
-
-        for(int i =0;i<wordList.size();i++)
-        {
-            if(isPoss(wordList.get(i), beginWord))
-                q.add(wordList.get(i));
-        }
-
-        HashSet<String> hs = new HashSet<>();
-
-        int dis =0;
-        while(q.size()>0)
-        {
-            int size = q.size();
-            dis++;
-            for(int i =0;i<size;i++)
-            {
-                String out = q.remove();
-                if(out.equalsIgnoreCase(endWord))
-                    return  dis+1;
-
-                if(hs.contains(out))
-                    continue;
-                else
-                {
-                    hs.add(out);
-                    for(int j =0;j<wordList.size();j++)
-                    {
-                        if(hs.contains(wordList.get(j)) == false && isPoss(wordList.get(j), out))
-                            q.add(wordList.get(j));
-                    }
-                }
 
 
-
-            }
-        }
-
-
-
-        return  0;
+        return  solve(wordList, beginWord, endWord);
     }
 
     int solve(List<String>  res, String beg, String end)
@@ -148,7 +148,7 @@ public class WordLadder {
             }
         }
 
-        return  dep+1;
+        return  0;
 
 
     }
