@@ -1,24 +1,35 @@
 
 //Link https://leetcode.com/problems/maximize-sum-of-array-after-k-negations/
 
-import java.util.Arrays;
-import java.util.Scanner;
+import java.util.*;
 
 public class MaximizeArray {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        int n = sc.nextInt();
-        int ar[] = new int[n];
-        for(int i =0;i <n;i++)
-            ar[i] = sc.nextInt();
-        int k = sc.nextInt();
+//        int n = sc.nextInt();
+//        int ar[] = new int[n];
+//        for(int i =0;i <n;i++)
+//            ar[i] = sc.nextInt();
+//        int k = sc.nextInt();
+//
+//        int ans = new MaximizeArray().largestSumAfterKNegations(ar, k);
+//        StringBuilder sb = new StringBuilder();
+//
+//        System.out.println(ans);
+//        String s = sc.next();
+//    s = s.toLowerCase();
+//        System.out.println(s);
+        StringBuilder sb = new StringBuilder("abc");
+        sb.deleteCharAt(sb.length()-1);
 
-        int ans = new MaximizeArray().largestSumAfterKNegations(ar, k);
+        System.out.println(sb);
 
-        System.out.println(ans);
     }
     public int largestSumAfterKNegations(int[] nums, int k) {
         int  sum = 0;
+        HashMap<Integer, ArrayList<String>> hmap =new HashMap<Integer, ArrayList<String>>();
+        hmap.containsKey(1);
+        hmap.get(1).get(0);
         int size = nums.length;
         Arrays.sort(nums);
         int in =0;
