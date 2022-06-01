@@ -1,48 +1,38 @@
 import java.util.*;
 
-public class anu1 {
+class demo {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        int m = sc.nextInt();
-        int n = sc.nextInt();
-        int ar[] []=  new int[m][n];
-        for(int i = 0;i<m;i++)
-            for(int j = 0;j<n;j++)
-                ar[i][j] = sc.nextInt();
-        List<Integer> ans = new anu1().intersection(ar);
-        System.out.println(ans);
-
-    }
-    public List<Integer> intersection(int[][] nums) {
-        HashSet<Integer> res = new HashSet<>();
-        HashSet<Integer> temp = new HashSet<>();
-        if(nums.length == 1)
-        {
-            List<Integer> ans = new ArrayList<>();
-            for(int i : nums[0])
-                ans.add(i);
-            return ans;
-        }
-        for(int i : nums[0])
-            temp.add(i);
-        for(int  i =1;i<nums.length;i++)
-        {
-            res = new HashSet<>();
-            for(int j =0;j<nums[i].length; j++)
-            {
-                if(temp.contains(nums[i][j]))
-                    res.add(nums[i][j]);
+        int t = sc.nextInt();
+        while (t-- != 0) {
+            ArrayList<Integer> temp = new ArrayList<>();
+            ArrayList<Integer> res = new ArrayList<>();
+            int n = sc.nextInt(), m = sc.nextInt();
+            int[] arr = new int[n];
+            for (int i=0; i<n; i++) {
+                arr[i] = sc.nextInt();
             }
-            temp = res;
+            solve(arr, 0, arr.length, temp, m, res);
+            int ans = Integer.MIN_VALUE;
+
+            for (int i: res) {
+                ans = Math.max(ans, i);
+            }
+            System.out.println(ans);
         }
+    }
 
-        Iterator<Integer> iterator = temp.iterator();
-        List<Integer> ans = new ArrayList<>();
-
-        while(iterator.hasNext())
-            ans.add(iterator.next());
-        Collections.sort(ans);
-        return ans;
-
+    static void solve(int [] arr, int i, int n, ArrayList<Integer> temp, int m, ArrayList<Integer> res) {
+        if (i == n) {
+            int sum = 0;
+            for (int e: temp) {
+                sum += e;
+            }
+            res.add(sum%m);
+            return;
+        }
+        solve(arr, i+1, n, temp, m, res);
+        temp.add(arr[i]);
+        solve(arr, i+1, n, temp, m, res);
     }
 }
