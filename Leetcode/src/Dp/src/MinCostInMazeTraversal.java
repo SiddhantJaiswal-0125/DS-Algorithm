@@ -15,10 +15,10 @@ public class MinCostInMazeTraversal {
     static  int getMinimumCostOfTraversal(int mat[][], int m, int n)
     {
         int dp[][] =  new int[m][n];
-
-            for(int j = 1;j<n;j++)
-                dp[0][j] = mat[0][j]+dp[0][j-1];
+        dp[0][0] = mat[0][0];
         for(int j = 1;j<n;j++)
+            dp[0][j] = mat[0][j]+dp[0][j-1];
+        for(int j = 1;j<m;j++)
             dp[j][0] = mat[j][0]+dp[j-1][0];
 
         for(int i = 1;i <m;i++)
