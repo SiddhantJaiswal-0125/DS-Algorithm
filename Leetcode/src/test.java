@@ -1,25 +1,64 @@
+import java.util.Arrays;
+import java.util.Locale;
 import java.util.Scanner;
 
 class test
 {
     public static void main(String[] args) {
-         Scanner sc = new Scanner(System.in);
-         int  n = sc.nextInt();
-         String ans = solve(n);
+        Scanner sc = new Scanner(System.in);
+        String s = sc.next();
+        int in = sc.nextInt();
+
+        String ans = new test().toggleTheString(s, in);
         System.out.println(ans);
 
     }
-    static  String solve(int n)
+    String toggleTheString(String input1, int input2)
     {
-        StringBuffer sb = new StringBuffer();
+       StringBuilder sb = new StringBuilder();
+       char str[] = input1.toCharArray();
+       if (input2 == 0) {
+           for (int i = 0; i < str.length; i+=2)
+              {
+                   if (str[i] >= 'A' && str[i] <= 'Z')
+                       str[i] = (char) (str[i] + 'a' - 'A');
+                   else if (str[i] >= 'a' && str[i] <= 'z')
+                       str[i] = (char) (str[i] + 'A' - 'a');
 
-        while(n>0)
-        {
-            int rem = n%2;
-            sb.append(rem);
-            n/=2;
-        }
+                   sb.append(str[i]);
 
-        return new String(sb.reverse());
+               }
+
+
+       }
+
+       else if(input2 == 1)
+       {
+           for (int i=1; i<str.length; i+=2)
+         {
+                   if (str[i] >= 'A' && str[i] <= 'Z')
+                       str[i] = (char) (str[i] + 'a' - 'A');
+                   else if (str[i] >= 'a' && str[i] <= 'z')
+                       str[i] = (char) (str[i] + 'A' - 'a');
+
+                   sb.append(str[i]);
+
+               }
+       }
+       else
+       {
+           for (int i=0; i<str.length; i++)
+           {
+                   if (str[i] >= 'A' && str[i] <= 'Z')
+                       str[i] = (char) (str[i] + 'a' - 'A');
+                   else if (str[i] >= 'a' && str[i] <= 'z')
+                       str[i] = (char) (str[i] + 'A' - 'a');
+                   sb.append(str[i]);
+           }
+           return sb.reverse().toString();
+
+       }
+
+       return sb.toString();
     }
 }
