@@ -9,7 +9,10 @@ public class LongestChainString {
         String s[] = new String[n];
         for(int i =0;i<n;i++)
             s[i]= sc.next();
-        System.out.println(new Solution().longestStrChain(s));
+        Arrays.sort(s);
+        for(String si:s)
+        System.out.println(si);
+//        System.out.println(new Solution().longestStrChain(s));
     }
     static class Solution {
         public int longestStrChain(String[] words) {
