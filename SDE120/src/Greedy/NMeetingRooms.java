@@ -13,48 +13,65 @@ public class NMeetingRooms
                start[i] = sc.nextInt();
         for(int i =0;i<n;i++)
             end[i] = sc.nextInt();
-        System.out.println(maxMeetings(start, end,n));
+        System.out.println(new NMeetingRooms().maxMeetings(start, end));
 
 
     }
-    public static int maxMeetings(int start[], int end[], int n)
-    {
-        pair p[] = new pair[n];
-        for( int i=0;i<n;i++)
+    public int maxMeetings(int start[], int end[]) {
+        // add your code here
+        ArrayList<Pair> list = new ArrayList<>();
+        int size = start.length;
+        if(size==0)
+            return 0;
+        for(int i =0 ;i<size; i++)
+            list.add(
+                    new Pair(start[i], end[i])
+            );
+
+        Collections.sort(list);
+
+        int cnt = 1;
+        int endtime = list.get(0).end;
+        int currEnd, currStart;
+        for(int i =1; i<size;i++)
         {
-            p[i] = new pair();
-            p[i].start= start[i];
-            p[i].end = end[i];
-
-        }
-
-
-        Arrays.sort(p);
-
-
-        int count =0;
-        int ending =-1;
-        for(pair pi:p)
-        {
-            if(pi.start>ending)
+            currStart = list.get(i).st;
+            currEnd = list.get(i).end;
+            if(currStart > endtime)
             {
-                count++;
-                ending = pi.end;
+                cnt++;
+                endtime = currEnd;
             }
+
         }
 
 
+//        for(Pair p : list)
+//        System.out.println(p.toString());
 
 
-        return count;
+        return cnt;
+
     }
-    static class pair implements Comparable<pair>
+    class Pair implements Comparable<Pair>
     {
-        int start , end ;
-        @Override
-        public int compareTo(pair o)
+        int st, end;
+
+        Pair(int a, int b)
         {
-            return this.end - o.end;
+            st = a;
+            end = b;
+        }
+
+
+        @Override
+        public String toString() {
+            return this.st +"\t" +this.end;
+        }
+
+        public int compareTo(Pair oth)
+        {
+            return this.end - oth.end;
         }
     }
 }

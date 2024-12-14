@@ -60,7 +60,7 @@ import java.lang.*;
             for(int i=1;i<n;i++)
             {
                 max = A[i];
-                if(max-min >)
+                if(max-min >0)
                 total+=(A[i]- A[i-1]);
                 if(total>mid)
                 {
