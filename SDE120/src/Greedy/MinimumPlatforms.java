@@ -15,49 +15,91 @@ public class MinimumPlatforms
 
         System.out.println(findPlatform(start, end, n));
     }
-    static int findPlatform(int arr[], int dep[], int n)
+
+    static int findPlatform(int start[], int end[], int n)
     {
-        if(n==0)
-            return 0;
-        PriorityQueue<Integer> platforms = new PriorityQueue<>();
-        pair p[] = new pair[n];
-        for(int i = 0; i<n;i++)
+        ArrayList<Pair> pairs = new ArrayList();
+        for(int i=0;i<n;i++)
+            pairs.add(new Pair(start[i], end[i]));
+        Collections.sort(pairs);
+        PriorityQueue<Integer> pq = new PriorityQueue<>();
+        pq.add(pairs.get(0).end);
+        for(int i= 1;i<n;i++)
         {
-            p[i] = new pair();
-            p[i].start = arr[i];
-            p[i].end = dep[i];
-        }
-        Arrays.sort(p);
-        int end = -1;
-        int count = 1;
-        platforms.add(p[0].end);
-        for(int i =1;i<n;i++)
-        {
-            end = platforms.peek();
-            if(p[i].start>end)
+            Pair cur = pairs.get(i);
+            if(pq.peek()< cur.st)
             {
-                platforms.poll();
-                platforms.add(p[i].end);
-            }
-            else
-            {
-                platforms.add(p[i].end);
-                count++;
-            }
+                pq.poll();
 
-
+            }
+            pq.add(cur.end);
 
         }
-        return count;
+        return pq.size();
+
     }
-    static class pair implements Comparable<pair>
+
+
+    static class Pair implements  Comparable<Pair>
     {
-        int start , end ;
-        public int compareTo(pair o)
+        int st, end;
+        Pair(int a, int b)
         {
-            return this.start - o.start;
+            st = a;
+            end = b;
         }
+        public int compareTo(Pair oth)
+        {
+            return this.st - oth.st;
+        }
+
     }
+
+
+
+//    static int findPlatform(int arr[], int dep[], int n)
+//    {
+//        if(n==0)
+//            return 0;
+//        PriorityQueue<Integer> platforms = new PriorityQueue<>();
+//        pair p[] = new pair[n];
+//        for(int i = 0; i<n;i++)
+//        {
+//            p[i] = new pair();
+//            p[i].start = arr[i];
+//            p[i].end = dep[i];
+//        }
+//        Arrays.sort(p);
+//        int end = -1;
+//        int count = 1;
+//        platforms.add(p[0].end);
+//        for(int i =1;i<n;i++)
+//        {
+//            end = platforms.peek();
+//            if(p[i].start>end)
+//            {
+//                platforms.poll();
+//                platforms.add(p[i].end);
+//            }
+//            else
+//            {
+//                platforms.add(p[i].end);
+//                count++;
+//            }
+//
+//
+//
+//        }
+//        return count;
+//    }
+//    static class pair implements Comparable<pair>
+//    {
+//        int start , end ;
+//        public int compareTo(pair o)
+//        {
+//            return this.start - o.start;
+//        }
+//    }
 }
 
 
