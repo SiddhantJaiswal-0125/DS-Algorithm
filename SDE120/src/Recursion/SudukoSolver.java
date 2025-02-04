@@ -16,7 +16,11 @@ public class SudukoSolver {
 //        }
 //
 //    }
+
     public static void main(String[] args) {
+        check();
+    }
+    public static void main1(String[] args) {
         Scanner sc = new Scanner(System.in);
         int m = sc.nextInt();
         char  board[][] = new char[m][m];
@@ -83,6 +87,21 @@ public class SudukoSolver {
     }
 
 
+
+   static void check()
+    {
+        Boolean b = true;
+        System.out.println(b);
+        if(b == true)
+            System.out.println("HGERE");
+
+        b = false;
+
+        if(b == true)
+            System.out.println("HGERE");
+        else System.out.println("NO");
+
+    }
 
 }
 
