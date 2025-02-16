@@ -1,7 +1,6 @@
 package Arrays;
 import java.util.*;
 
-import java.util.*;
 
  class TaskScheduler {
     public static int maxOptionalTasks(int[] tasksRequired, int[] tasksOptional, int dailyTimeLimit) {
